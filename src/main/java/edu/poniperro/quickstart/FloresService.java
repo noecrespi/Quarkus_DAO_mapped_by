@@ -7,6 +7,6 @@ import java.util.Set;
 public class FloresService {
 
     public Set<Flor> getFlores (){
-
+        return null;
     }
 }
