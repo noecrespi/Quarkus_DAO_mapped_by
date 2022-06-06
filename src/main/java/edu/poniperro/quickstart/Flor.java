@@ -22,8 +22,8 @@ public class Flor {
     public String color;
 
 
-    @ManyToOne
-    @JoinColumn(name = "floristeria")
-    public Floristeria floristeria;
+//    @ManyToOne
+//    @JoinColumn(name = "floristeria")
+//    public Floristeria floristeria;
 
 }
