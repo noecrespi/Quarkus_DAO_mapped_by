@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,8 +17,18 @@ public class FloristeriaRepository implements PanacheRepository<Floristeria> {
         return tiendas.collect(Collectors.toSet());
     }
 
-    //public void deleteFlor(String nombre) {
-       // Flor planta = find("nombre", nombre).firstResult();
-       // delete(planta);
-    //}
+    // COMPROBAR QUE NO LA HE LIADO PETUNIA
+    public Optional<Floristeria> getByIdFloristeria(Long idFloristeria) {
+        Optional<Floristeria> idTienda = find("idFloristeria").stream().findFirst();         // NO SE SI ESTÁ BIEN
+        return idTienda;                                                                           //ME LLORA NO SE PORQUÉ
+    }
+
+    public void deleteFloristeria(String nombre) {
+       Floristeria tienda = find("nombre", nombre).firstResult();
+       delete(tienda);
+    }
+
+    public void postFloristeria(Floristeria floristeria){
+        persist(floristeria);
+    }
 }

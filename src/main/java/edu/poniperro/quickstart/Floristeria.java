@@ -19,8 +19,8 @@ public class Floristeria {
 
     // ignorame los JSON, "NO me lo pidas al hacer un POST" 'citado por Victor'
     //mappedBy = nombre de la columna donde se almacena clave foranea (PK)
-    @JsonIgnore
-    @OneToMany(mappedBy = "floristeria")
-    public Set<Flor> stock;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "floristeria")
+//    public Set<Flor> stock;
 
 }
