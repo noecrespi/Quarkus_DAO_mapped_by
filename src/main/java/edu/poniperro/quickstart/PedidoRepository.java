@@ -10,9 +10,9 @@ import java.util.stream.Stream;
 
 // NO SE SI ES
 @ApplicationScoped
-public class PedidoRepository implements PanacheRepository {
-//public class PedidoRepository implements PanacheRepository<Flor> {
-    public Set<Pedido> getAll() {
+public class PedidoRepository implements PanacheRepository<Pedido> {
+
+    public Set<Pedido> getPedidos() {
         Stream<Pedido> pedido = streamAll();        // LLORA
         return pedido.collect(Collectors.toSet());
     }
@@ -23,8 +23,8 @@ public class PedidoRepository implements PanacheRepository {
         return idPedido1;
     }
 
-    public void deletePedido(String nombre) {
-        Pedido pedido = find("nombre", nombre).firstResult();       // LLORA
+    public void deletePedido(Long id) {
+        Pedido pedido = find("id", id).firstResult();       // LLORA
         delete(pedido);
     }
 

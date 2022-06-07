@@ -72,24 +72,26 @@ public class FloresResource {
         }
 
     @DELETE
-    @Path("/delete/pedido/{nombre}")
+    @Path("/delete/pedido/{id}")
     @Transactional
     @Consumes(MediaType.TEXT_PLAIN)
-    public Set<Pedido> deletePedido(@PathParam("nombre") String nombre){
-        Set<Pedido> pedido = this.floresService.deletePedido(   nombre);
+    public Set<Pedido> deletePedido(@PathParam("id") Long id){
+        Set<Pedido> pedido = floresService.deletePedido(id);
         return pedido;
     }
 
     // POST
     @POST
+    @Path("/postflor/{flor}")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Set<Flor> postflor(Flor flor){
-        Set<Flor> flores = this.floresService.postflor(flor);
+        Set<Flor> flores = floresService.postflor(flor);
         return flores;
     }
 
     @POST
+    @Path("/postfloristeria/{floristeria}")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Set<Floristeria> postFloristeria(Floristeria floristeria){

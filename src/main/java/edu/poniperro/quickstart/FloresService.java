@@ -27,7 +27,7 @@ public class FloresService {
     }
 
     public Set<Pedido> getPedidos(){
-        return pedidoRepository.getAll();
+        return pedidoRepository.getPedidos();
     }
 
     public Optional<Floristeria> getByIdFloristeria(Long idFloristeria){
@@ -52,9 +52,9 @@ public class FloresService {
         return this.getFloristerias();
     }
 
-    public Set<Pedido> deletePedido(String nombre) {
-        pedidoRepository.deletePedido(nombre);
-        return this.getFlores();
+    public Set<Pedido> deletePedido(Long id) {
+        pedidoRepository.deletePedido(id);
+        return this.getPedidos();
     }
 
     // POST
