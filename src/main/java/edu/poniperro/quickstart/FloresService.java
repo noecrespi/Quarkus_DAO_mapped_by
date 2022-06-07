@@ -14,6 +14,9 @@ public class FloresService {
     @Inject
     FloristeriaRepository floristeriaRepository;
 
+    @Inject
+    PedidoRepository pedidoRepository;
+
     // GET
     public Set<Flor> getFlores(){
         return floresRepository.getAll();
@@ -21,6 +24,10 @@ public class FloresService {
 
     public Set<Floristeria> getFloristerias(){
         return floristeriaRepository.getAll();
+    }
+
+    public Set<Pedido> getPedidos(){
+        return pedidoRepository.getAll();
     }
 
     public Optional<Floristeria> getByIdFloristeria(Long idFloristeria){
@@ -31,6 +38,9 @@ public class FloresService {
         return floresRepository.getByIdFlor(idFlor);
     }
 
+    public Optional<Pedido> getByIdPedido(Long idPedido){
+        return pedidoRepository.getByIdPedido(idPedido);
+    }
     // DELETE
     public Set<Flor> deleteFlor(String nombre) {
         floresRepository.deleteFlor(nombre);
@@ -40,6 +50,11 @@ public class FloresService {
     public Set<Floristeria> deleteFloristeria(String nombre) {
         floristeriaRepository.deleteFloristeria(nombre);
         return this.getFloristerias();
+    }
+
+    public Set<Pedido> deletePedido(String nombre) {
+        pedidoRepository.deletePedido(nombre);
+        return this.getFlores();
     }
 
     // POST

@@ -28,9 +28,16 @@ public class FloresResource {
         return floresService.getFloristerias();
     }
 
+    @GET
+    @Path("/pedidos")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Set<Pedido> getPedidos() {
+        return floresService.getPedidos();
+    }
+
     // Búsqueda por id
     @GET
-    @Path("/floristeria/{id}")
+    @Path("/floristerias/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Optional<Floristeria> getByIdFloristeria(@PathParam("id") Long idFloristeria){
         Optional<Floristeria> florecita = floresService.getByIdFloristeria(idFloristeria);
@@ -38,22 +45,40 @@ public class FloresResource {
     }
 
     @GET
-    @Path("/flor/{id}")
+    @Path("/flores/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Optional<Flor> getByIdFlor(@PathParam("id") Long idFlor){
         Optional<Flor> flor = floresService.getByIdFlor(idFlor);
         return flor;
     }
 
+    @GET
+    @Path("/pedidos/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Optional<Pedido> getByIdPedidos(@PathParam("id") Long idPedido){
+        Optional<Pedido> pedido = floresService.getByIdPedido(idPedido);
+        return pedido;
+    }
+
     // DELETE
+    // FALTA UNO, EL DE FLORISTERÍA
     @DELETE
-    @Path("/delete/{nombre}")
+    @Path("/delete/flores/{nombre}")
     @Transactional
     @Consumes(MediaType.TEXT_PLAIN)
         public Set<Flor> deleteFlor(@PathParam("nombre") String nombre){
             Set<Flor> flores = this.floresService.deleteFlor(nombre);
             return flores;
         }
+
+    @DELETE
+    @Path("/delete/pedido/{nombre}")
+    @Transactional
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Set<Pedido> deletePedido(@PathParam("nombre") String nombre){
+        Set<Pedido> pedido = this.floresService.deletePedido(   nombre);
+        return pedido;
+    }
 
     // POST
     @POST
