@@ -19,7 +19,7 @@ public class FloresRepository implements PanacheRepository<Flor> {
 
     // COMPROBAR QUE NO LA HE LIADO PETUNIA
     public Optional<Flor> getByIdFlor(Long idFlor) {
-        Optional<Flor> idFlorecita = find("idFlor").stream().findFirst();
+        Optional<Flor> idFlorecita = find("id", idFlor).stream().findFirst();
         return idFlorecita;
     }
 

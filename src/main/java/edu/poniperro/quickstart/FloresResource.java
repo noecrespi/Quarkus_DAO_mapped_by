@@ -45,7 +45,7 @@ public class FloresResource {
     }
 
     @GET
-    @Path("/flores/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Optional<Flor> getByIdFlor(@PathParam("id") Long idFlor){
         Optional<Flor> flor = floresService.getByIdFlor(idFlor);
@@ -77,6 +77,15 @@ public class FloresResource {
     @Consumes(MediaType.TEXT_PLAIN)
     public Set<Pedido> deletePedido(@PathParam("id") Long id){
         Set<Pedido> pedido = floresService.deletePedido(id);
+        return pedido;
+    }
+
+    @DELETE
+    @Path("/delete/floristeria/{nombre}")
+    @Transactional
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Set<Floristeria> deleteFloristeria(@PathParam("nombre") String nombre){
+        Set<Floristeria> pedido = floresService.deleteFloristeria(nombre);
         return pedido;
     }
 

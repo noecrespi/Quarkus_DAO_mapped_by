@@ -13,18 +13,19 @@ import java.util.stream.Stream;
 public class PedidoRepository implements PanacheRepository<Pedido> {
 
     public Set<Pedido> getPedidos() {
-        Stream<Pedido> pedido = streamAll();        // LLORA
+        Stream<Pedido> pedido = streamAll();
         return pedido.collect(Collectors.toSet());
+
     }
 
     // COMPROBAR QUE NO LA HE LIADO PETUNIA
     public Optional<Pedido> getByIdPedido(Long idPedido) {
-        Optional<Pedido> idPedido1 = find("idPedido").stream().findFirst();
+        Optional<Pedido> idPedido1 = find("id", idPedido).stream().findFirst();
         return idPedido1;
     }
 
     public void deletePedido(Long id) {
-        Pedido pedido = find("id", id).firstResult();       // LLORA
+        Pedido pedido = find("id", id).firstResult();
         delete(pedido);
     }
 

@@ -19,7 +19,7 @@ public class FloristeriaRepository implements PanacheRepository<Floristeria> {
 
     // COMPROBAR QUE NO LA HE LIADO PETUNIA
     public Optional<Floristeria> getByIdFloristeria(Long idFloristeria) {
-        Optional<Floristeria> idTienda = find("idFloristeria").stream().findFirst();         // NO SE SI ESTÁ BIEN
+        Optional<Floristeria> idTienda = find("id",idFloristeria).stream().findFirst();         // NO SE SI ESTÁ BIEN
         return idTienda;                                                                           //ME LLORA NO SE PORQUÉ
     }
 
